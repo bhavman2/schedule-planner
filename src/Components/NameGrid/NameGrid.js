@@ -18,7 +18,7 @@ class NameGrid extends Component {
 
   render() {
     return (
-      <input type="text" className="grid-itemm" name={this.state.text} onKeyUp={this.edit} size="4" />
+      <input type="text" className="name-grid-item" name={this.state.text} onKeyUp={this.edit} size="4" />
     );
   }
 }

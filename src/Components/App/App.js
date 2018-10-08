@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NameGrid from '../NameGrid/NameGrid';
+import EmptyRow from '../EmptyRow/EmptyRow'
 
 class App extends Component {
   constructor(props) {
@@ -14,9 +15,7 @@ class App extends Component {
     this.tempTherapists = [];
   }
 
-  consoleLog = (row, col) => {
-    console.log(row, col);
-  }
+
 
   handleNewTherapistType = (e) => {
     var name = e.target.value.trim();
@@ -40,7 +39,7 @@ class App extends Component {
     for (var i = 0; i < this.rooms.length; i++) {
       row.push(<div key={i} className="app-grid-item">{this.rooms[i]}</div>);
       row.push(<NameGrid />);
-      row.push(this.createEmptyGrid(i));
+      row.push(<EmptyRow row={i} key={i} />);
     }
     return row;
   }
@@ -48,7 +47,7 @@ class App extends Component {
   createEmptyGrid = (row) => {
     var table = [];
     for (var i = 0; i < 21; i++) {
-      table.push(<div row={row} key={i} className="app-grid-item" onClick={this.consoleLog.bind(this, row, i)}></div>);
+      table.push();
     }
     return table;
   }
